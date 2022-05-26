@@ -1,13 +1,21 @@
 package indi.likai.mrm.service;
 
-import indi.likai.mrm.domain.ResultInfo;
+import indi.likai.mrm.domain.ServerStatus;
 import indi.likai.mrm.domain.ServerInfo;
+
+import java.util.List;
 
 public interface IMonitorService {
     /**
-     * 读取服务器信息
+     * 获取所有服务器运行信息
+     * @return
+     */
+    List<ServerStatus> getAllServersStatus();
+
+    /**
+     * 获取服务器运行信息
      * @param serverInfo
      * @return
      */
-    ResultInfo getUsedMemorySize(ServerInfo serverInfo);
+    ServerStatus getServerStatus(ServerInfo serverInfo);
 }
