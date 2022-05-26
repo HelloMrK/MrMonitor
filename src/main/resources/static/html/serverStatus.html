@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Title</title>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/jquery.dataTables.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../css/jquery.dataTables.min.css">
+
+</head>
+<body>
+    <h1>Server Status!</h1>
+<table id="serverStatusTable" style="width:100%">
+    <thead>
+        <tr>
+            <th>serverIp</th>
+            <th>serverRemark</th>
+            <th>totalMemSize</th>
+            <th>usedMemSize</th>
+            <th>usedCpuRate</th>
+            <th>totalDiskSize</th>
+            <th>usedDiskSize</th>
+            <th>usedDiskRate</th>
+        </tr>
+    </thead>
+
+</table>
+
+</body>
+<script>
+
+    $(document).ready(function () {
+
+        $('#serverStatusTable').DataTable( {
+            ajax: 'http://127.0.0.1:62222/monitor/getAllServerStatus',
+            columns: [
+                { data: 'serverIp' },
+                { data: 'serverRemark' },
+                { data: 'totalMemSize' },
+                { data: 'usedMemSize' },
+                { data: 'usedCpuRate' },
+                { data: 'totalDiskSize' },
+                { data: 'usedDiskSize' },
+                { data: 'usedDiskRate' },
+            ],
+        } );
+
+    });
+
+</script>
+</html>
