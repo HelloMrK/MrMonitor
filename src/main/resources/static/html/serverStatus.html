@@ -17,12 +17,14 @@
         <tr>
             <th>serverIp</th>
             <th>serverRemark</th>
-            <th>totalMemSize</th>
-            <th>usedMemSize</th>
-            <th>usedCpuRate</th>
-            <th>totalDiskSize</th>
-            <th>usedDiskSize</th>
-            <th>usedDiskRate</th>
+            <th>serverType</th>
+            <th>totalMemSize(MB)</th>
+            <th>usedMemSize(MB)</th>
+            <th>usedMemRate(%)</th>
+            <th>usedCpuRate(%)</th>
+            <th>totalDiskSize(GB)</th>
+            <th>usedDiskSize(GB)</th>
+            <th>usedDiskRate(%)</th>
         </tr>
     </thead>
 
@@ -34,12 +36,14 @@
     $(document).ready(function () {
 
         $('#serverStatusTable').DataTable( {
-            ajax: 'http://127.0.0.1:62222/monitor/getAllServerStatus',
+            ajax: 'http://127.0.0.1:60000/monitor/getAllServerStatus',
             columns: [
                 { data: 'serverIp' },
                 { data: 'serverRemark' },
+                { data: 'serverType' },
                 { data: 'totalMemSize' },
                 { data: 'usedMemSize' },
+                { data: 'usedMemRate' },
                 { data: 'usedCpuRate' },
                 { data: 'totalDiskSize' },
                 { data: 'usedDiskSize' },

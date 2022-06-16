@@ -6,6 +6,8 @@ import indi.likai.mrm.service.IMonitorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @RequestMapping("/monitor")
@@ -23,7 +25,13 @@ public class MonitorController {
      */
     @RequestMapping("/getAllServerStatus")
     public AjaxResult getResultInfoList() {
-        List<ServerStatus> rstList = monitorService.getAllServersStatus();
+        List<ServerStatus> rstList = new ArrayList<>();
+        try{
+            rstList=monitorService.getAllServersStatus();
+        }catch (Exception e){
+            System.out.println(e);
+        }
         return AjaxResult.success(rstList);
+
     }
 }

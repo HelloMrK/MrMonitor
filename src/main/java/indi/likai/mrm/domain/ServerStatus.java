@@ -1,5 +1,7 @@
 package indi.likai.mrm.domain;
 
+import indi.likai.mrm.enums.ServerTypeEnum;
+
 import java.math.BigDecimal;
 
 /**
@@ -12,6 +14,8 @@ public class ServerStatus {
     private String serverIp;
     /** 服务器备注 */
     private String serverRemark;
+    private Enum<ServerTypeEnum> serverType;
+
     /** 总内存(MB) */
     private BigDecimal totalMemSize;
     /** 已使用内存(MB) */
@@ -36,6 +40,14 @@ public class ServerStatus {
 
     public void setServerIp(String serverIp) {
         this.serverIp = serverIp;
+    }
+
+    public Enum<ServerTypeEnum> getServerType() {
+        return serverType;
+    }
+
+    public void setServerType(Enum<ServerTypeEnum> serverType) {
+        this.serverType = serverType;
     }
 
     public String getServerRemark() {
@@ -113,5 +125,21 @@ public class ServerStatus {
                 this.usedMemSize.divide(this.totalMemSize,DIVIDE_SCALE,BigDecimal.ROUND_HALF_DOWN)
             )
         ).setScale(2);
+    }
+
+    @Override
+    public String toString() {
+        return "ServerStatus{" +
+                "serverIp='" + serverIp + '\'' +
+                ", serverRemark='" + serverRemark + '\'' +
+                ", serverType=" + serverType +
+                ", totalMemSize=" + totalMemSize +
+                ", usedMemSize=" + usedMemSize +
+                ", usedMemRate=" + usedMemRate +
+                ", usedCpuRate=" + usedCpuRate +
+                ", totalDiskSize=" + totalDiskSize +
+                ", usedDiskSize=" + usedDiskSize +
+                ", usedDiskRate=" + usedDiskRate +
+                '}';
     }
 }

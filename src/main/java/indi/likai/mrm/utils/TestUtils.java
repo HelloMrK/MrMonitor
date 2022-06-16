@@ -14,15 +14,10 @@ public class TestUtils {
      */
     public static synchronized List<ServerInfo> generateTestServerInfoList(){
         List<ServerInfo> list=new ArrayList<>();
-        ServerInfo serverInfo=new ServerInfo();
-        serverInfo.setId(1);
-        serverInfo.setIp("127.0.0.1");
-        serverInfo.setPort(22);
-        serverInfo.setUsername("root");
-        serverInfo.setPassword("root");
-        serverInfo.setServertype(ServerTypeEnum.LINUX);
-        serverInfo.setRemark("这是备注");
-        list.add(serverInfo);
+
+        list.add(new ServerInfo("127.0.0.1",22,"test","test",ServerTypeEnum.LINUX,"testLinux"));
+        list.add(new ServerInfo("127.0.0.1",62223,ServerTypeEnum.WIN,"testWin","C:\\"));
+
         return list;
     }
 

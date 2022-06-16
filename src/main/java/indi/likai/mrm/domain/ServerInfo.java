@@ -21,6 +21,9 @@ public class ServerInfo {
     /** 备注 */
     private String remark;
 
+    /** 盘符(win用)   "C:\\" */
+    private String diskpath;
+
     public Integer getId() {
         return id;
     }
@@ -77,17 +80,32 @@ public class ServerInfo {
         this.remark = remark;
     }
 
-    @Override
-    public String toString() {
-        return "ServerInfo{" +
-                "id=" + id +
-                ", ip='" + ip + '\'' +
-                ", port=" + port +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", servertype=" + servertype +
-                ", remark='" + remark + '\'' +
-                '}';
+    public String getDiskpath() {
+        return diskpath;
+    }
+
+    public void setDiskpath(String diskpath) {
+        this.diskpath = diskpath;
+    }
+
+
+    public ServerInfo(){}
+
+    public ServerInfo(String ip, Integer port, String username, String password, ServerTypeEnum servertype, String remark) {
+        this.ip = ip;
+        this.port = port;
+        this.username = username;
+        this.password = password;
+        this.servertype = servertype;
+        this.remark = remark;
+    }
+
+    public ServerInfo(String ip, Integer port, ServerTypeEnum servertype, String remark, String diskpath) {
+        this.ip = ip;
+        this.port = port;
+        this.servertype = servertype;
+        this.remark = remark;
+        this.diskpath = diskpath;
     }
 }
 
