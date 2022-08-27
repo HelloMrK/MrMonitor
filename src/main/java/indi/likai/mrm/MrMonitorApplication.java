@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class MrMonitorApplication {
 
     public static void main(String[] args) {
+
         SpringApplication.run(MrMonitorApplication.class, args);
     }
 

@@ -6,7 +6,8 @@ spring:
   datasource:
     url: jdbc:sqlite::resource:static/sqlite3/mrm.db
   jpa:
-    database-platform: org.hibernate.dialect.SQLiteDialect
+    database-platform: indi.likai.mrm.utils.SQLiteDialect
     hibernate:
       ddl-auto: update
+
     show-sql: true

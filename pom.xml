@@ -57,12 +57,7 @@
             <artifactId>sqlite-jdbc</artifactId>
             <version>3.39.2.1</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.github.gwenn/sqlite-dialect -->
-        <dependency>
-            <groupId>com.zsoltfabok</groupId>
-            <artifactId>sqlite-dialect</artifactId>
-            <version>1.0</version>
-        </dependency>
+
 
     </dependencies>
 
