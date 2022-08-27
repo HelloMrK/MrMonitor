@@ -1,7 +1,7 @@
 package indi.likai.mrm.utils;
 
 import com.jcraft.jsch.*;
-import indi.likai.mrm.domain.ServerInfo;
+import indi.likai.mrm.dto.ServerInfo;
 
 import java.io.InputStream;
 

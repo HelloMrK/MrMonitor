@@ -1,5 +1,5 @@
 package indi.likai.mrm.utils;
-import indi.likai.mrm.domain.ServerInfo;
+import indi.likai.mrm.dto.ServerInfo;
 import indi.likai.mrm.enums.ServerTypeEnum;
 import java.util.ArrayList;
 import java.util.List;

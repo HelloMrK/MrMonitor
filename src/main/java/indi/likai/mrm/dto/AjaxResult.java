@@ -1,4 +1,4 @@
-package indi.likai.mrm.domain;
+package indi.likai.mrm.dto;
 
 import indi.likai.mrm.constant.HttpStatusConstant;
 import org.springframework.util.ObjectUtils;

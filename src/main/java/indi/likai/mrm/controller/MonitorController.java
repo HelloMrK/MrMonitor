@@ -1,7 +1,7 @@
 package indi.likai.mrm.controller;
 
-import indi.likai.mrm.domain.AjaxResult;
-import indi.likai.mrm.domain.ServerStatus;
+import indi.likai.mrm.dto.AjaxResult;
+import indi.likai.mrm.dto.ServerStatus;
 import indi.likai.mrm.service.IMonitorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

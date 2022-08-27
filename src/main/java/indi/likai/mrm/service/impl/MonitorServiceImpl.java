@@ -2,24 +2,19 @@ package indi.likai.mrm.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
 import indi.likai.mrm.constant.CommandConstant;
-import indi.likai.mrm.domain.ServerStatus;
-import indi.likai.mrm.domain.ServerInfo;
+import indi.likai.mrm.dto.ServerStatus;
+import indi.likai.mrm.dto.ServerInfo;
 import indi.likai.mrm.enums.ServerTypeEnum;
 import indi.likai.mrm.service.IMonitorService;
 import indi.likai.mrm.utils.SSHUtils;
 import indi.likai.mrm.utils.TestUtils;
 import okhttp3.*;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.BrokenBarrierException;
-import java.util.concurrent.CyclicBarrier;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 @Service
 public class MonitorServiceImpl implements IMonitorService {

@@ -1,2 +1,12 @@
 server:
   port: 60000
+spring:
+  resources:
+    static-locations: classpath:/static/,classpath:/views/,file:${web.upload},file:${web.ueditorUpload}
+  datasource:
+    url: jdbc:sqlite::resource:static/sqlite3/mrm.db
+  jpa:
+    database-platform: org.hibernate.dialect.SQLiteDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true

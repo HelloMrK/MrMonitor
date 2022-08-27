@@ -1,7 +1,7 @@
 package indi.likai.mrm.service;
 
-import indi.likai.mrm.domain.ServerStatus;
-import indi.likai.mrm.domain.ServerInfo;
+import indi.likai.mrm.dto.ServerStatus;
+import indi.likai.mrm.dto.ServerInfo;
 
 import java.util.List;
 import java.util.concurrent.BrokenBarrierException;
