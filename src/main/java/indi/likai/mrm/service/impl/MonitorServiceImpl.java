@@ -9,30 +9,55 @@ import indi.likai.mrm.service.IMonitorService;
 import indi.likai.mrm.utils.SSHUtils;
 import indi.likai.mrm.utils.TestUtils;
 import okhttp3.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
 
 @Service
 public class MonitorServiceImpl implements IMonitorService {
-
+    @Autowired
+    @Qualifier(value = "taskExecutor")
+    private ThreadPoolTaskExecutor poolTaskExecutor;
     @Override
     public List<ServerStatus> getAllServersStatus() {
         //初始化返回列表
         List<ServerStatus> serverStatusList=new ArrayList<>();
         //初始化服务器信息
         List<ServerInfo> serverInfoList = TestUtils.generateTestServerInfoList();
-
+        //初始化线程池
+        poolTaskExecutor.initialize();
+        //初始化多线程同步等待
+        CountDownLatch latch=new CountDownLatch(serverInfoList.size());
         //遍历服务器信息
         for (ServerInfo serverInfo:serverInfoList
              ) {
-            serverStatusList.add(getServerStatus(serverInfo));
+            poolTaskExecutor.execute(() -> {
+                try{
+                    serverStatusList.add(getServerStatus(serverInfo));
+                }catch(Exception e ){
+
+                }finally {
+                    latch.countDown();
+                }
+
+            });
         }
+        //线程等待
+        try{
 
-
+            latch.await();
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
+        //关闭线程池
+        poolTaskExecutor.shutdown();
         return serverStatusList;
     }
 
