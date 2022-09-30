@@ -32,9 +32,9 @@ public class WOLUtils {
             DatagramSocket socket = new DatagramSocket();
             socket.send(packet);
             socket.close();
-            System.out.println("已发送局域网唤醒数据包:"+ipStr);
+            System.out.println("已发送WOL:"+ipStr);
         } catch (Exception e) {
-            System.out.println("无法发送Lan唤醒数据包: " + e);
+            System.out.println("无法发送WOL: " + e);
         }
     }
 
